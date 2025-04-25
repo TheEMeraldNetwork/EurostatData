@@ -1,0 +1,56 @@
+<!-- templates/index.html -->
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Italian Household Finance Comparison (vs EU)</title>
+    <style>
+        body { font-family: sans-serif; margin: 20px; }
+        h1 { text-align: center; }
+        .chart-container {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: space-around;
+            gap: 20px;
+        }
+        .chart {
+             /* Adjust width as needed, allowing for flex-wrap */
+            min-width: 400px; 
+            flex: 1; 
+            border: 1px solid #ccc;
+            padding: 10px;
+            box-shadow: 2px 2px 5px rgba(0,0,0,0.1);
+        }
+        /* Ensure Plotly charts resize reasonably */
+         .plotly-graph-div { 
+            width: 100% !important; 
+            height: auto !important;
+         }
+    </style>
+    <!-- Plotly.js is included via CDN by the pio.to_html function -->
+</head>
+<body>
+    <h1>Italian Household Finances vs EU Average (2023)</h1>
+    <p>Comparing key financial ratios for households in Italy (Green) against the EU average (Red). Data sourced from Eurostat via Master.csv.</p>
+
+    <div class="chart-container">
+        <div class="chart">
+            {{ chart_aic_gdp | safe }}
+        </div>
+        <div class="chart">
+            {{ chart_aic_cad | safe }}
+        </div>
+        <div class="chart">
+            {{ chart_cad_ins | safe }}
+        </div>
+         <div class="chart">
+            {{ chart_ins_fa | safe }}
+        </div>
+        <div class="chart">
+            {{ chart_fa_gdp | safe }}
+        </div>
+    </div>
+
+</body>
+</html> 

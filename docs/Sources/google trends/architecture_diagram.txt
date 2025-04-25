@@ -1,0 +1,74 @@
++------------------------------------------------------------------------------------------------------+
+|                                     SYSTEM ARCHITECTURE                                             |
++------------------------------------------------------------------------------------------------------+
+
++-------------------------+         +-------------------------+         +----------------------+
+|      FRONTEND [FE]      |  HTTP   |       BACKEND [BE]      |  API    |  EXTERNAL SERVICES   |
+|                         | <-----> |                         | <-----> |        [ES]          |
+| [FE-01] Dashboard       |         | [BE-01] API Gateway     |         | [ES-01] Google Trends|
+| [FE-02] Search          |         | [BE-02] TrendsService   |         | [ES-02] LinkedIn API |
+| [FE-03] Visualization   |         | [BE-03] QueryProcessor  |         | [ES-03] Export Svc   |
+| [FE-04] Saved Trends    |         | [BE-04] DataCleaner     |         +----------------------+
+| [FE-05] Settings        |         | [BE-05] AnalyticsEngine |
+| [FE-06] Content Suggest |         | [BE-06] ContentGenerator|
+| [FE-07] Export          |         | [BE-07] Scheduler       |
+| [FE-08] Authentication  |         | [BE-08] StorageService  |
++-------------------------+         | [BE-09] UserService     |
+                                    | [BE-10] RegionalService |
+                                    +-------------------------+
+                                              ^
+                                              |
+                                              v
+                                    +-------------------------+
+                                    |      DATABASE [DB]      |
+                                    |                         |
+                                    | [DB-01] Trends          |
+                                    | [DB-02] Queries         |
+                                    | [DB-03] Regions         |
+                                    | [DB-04] Users           |
+                                    | [DB-05] ContentSuggest  |
+                                    | [DB-06] Settings        |
+                                    | [DB-07] HistoricalData  |
+                                    +-------------------------+
+
++------------------------------------------------------------------------------------------------------+
+|                                          DATA WORKFLOW [DF-01 to DF-05]                              |
++------------------------------------------------------------------------------------------------------+
+
+ +------------+     +-------------+    +------------+    +--------------+    +---------------+    +-----------+
+ | [FE-02]    | --> | [BE-03]     | -> | [BE-02]    | -> | [ES-01]      | -> | [BE-04]       | -> | [DB-01]   |
+ | USER INPUT |     | QUERY       |    | TRENDS     |    | GOOGLE       |    | DATA          |    | DATABASE  |
+ |            |     | PROCESSOR   |    | SERVICE    |    | TRENDS API   |    | CLEANER       |    | STORAGE   |
+ +------------+     +-------------+    +------------+    +--------------+    +---------------+    +-----------+
+                                                                                   |
+                                                                                   v
+ +--------------+   +--------------+   +---------------+   +-------------+   +--------------+
+ | [FE-06]      | <- | [BE-06]      | <- | [BE-05]       | <- | [DB-07]     | <- | [BE-08]      |
+ | CONTENT      |    | CONTENT      |    | ANALYTICS     |    | HISTORICAL  |    | STORAGE      |
+ | VIEW         |    | GENERATOR    |    | ENGINE        |    | DATA        |    | SERVICE      |
+ +--------------+   +--------------+   +---------------+   +-------------+   +--------------+
+
++------------------------------------------------------------------------------------------------------+
+|                                        USER WORKFLOW [WF-01]                                          |
++------------------------------------------------------------------------------------------------------+
+
+ [1] User requests trends         [2] System processes query      [3] Data visualization
+ +-----------------------+        +-----------------------+       +-----------------------+
+ | [FE-02]               |        | [BE-02],[BE-03]       |       | [FE-03]               |
+ |  SEARCH INTERFACE:    |  -->   |  BACKEND PROCESSING:  |  -->  |  VISUALIZATION:       |
+ |  - Region: Lombardia  |        |  - API requests       |       |  - Trend charts       |
+ |  - Keywords           |        |  - Data filtering     |       |  - Popularity scores  |
+ |  - Time period        |        |  - Analysis           |       |  - Related topics     |
+ |                       |        |                       |       |                       |
+ +-----------------------+        +-----------------------+       +-----------------------+
+                                                                           |
+                                                                           v
+ [6] Content creation           [5] Export/Save                   [4] Insights generation
+ +-----------------------+      +-----------------------+         +-----------------------+
+ | [FE-06]               |      | [FE-07]               |         | [BE-05]               |
+ |  CONTENT SUGGESTIONS: | <--  |  EXPORT MODULE:       |  <--    |  ANALYTICS ENGINE:    |
+ |  - Post suggestions   |      |  - CSV/PDF export     |         |  - Trend analysis     |
+ |  - Trending hashtags  |      |  - Save to history    |         |  - Content ideas      |
+ |  - Optimal timing     |      |  - Schedule posts     |         |  - Audience interest  |
+ |                       |      |                       |         |                       |
+ +-----------------------+      +-----------------------+         +-----------------------+ 
