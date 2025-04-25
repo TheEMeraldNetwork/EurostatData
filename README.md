@@ -2,6 +2,9 @@
 
 This project creates an interactive visualization of European household financial indicators using data from Eurostat. The visualization is a bubble chart that combines multiple dimensions of financial data to provide insights into household financial patterns across European countries.
 
+## Live Visualization
+View the interactive visualization directly in your browser: [European Household Financial Indicators](https://theemeraldnetwork.github.io/EurostatData/)
+
 ## Features
 
 ### Main Visualization
