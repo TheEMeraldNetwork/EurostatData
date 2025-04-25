@@ -1,0 +1,101 @@
+
+        <!DOCTYPE html>
+        <html>
+        <head>
+            <title>The €1.5 Trillion Paradox: Financial Analysis</title>
+            <style>
+                body {
+                    font-family: Arial, sans-serif;
+                    margin: 0;
+                    padding: 20px;
+                    background-color: #f9f9f9;
+                }
+                .header {
+                    text-align: center;
+                    margin-bottom: 20px;
+                    padding: 10px;
+                    background-color: white;
+                    border-bottom: 1px solid #dddddd;
+                }
+                .dashboard-container {
+                    display: grid;
+                    grid-template-columns: 1fr 1fr;
+                    grid-gap: 20px;
+                }
+                .full-width {
+                    grid-column: 1 / span 2;
+                }
+                .chart-container {
+                    background-color: white;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                    padding: 10px;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                .footer {
+                    text-align: center;
+                    margin-top: 20px;
+                    font-size: 12px;
+                    color: #666;
+                }
+                .analysis-box {
+                    background-color: white;
+                    border: 1px solid #dddddd;
+                    border-radius: 5px;
+                    padding: 20px;
+                    margin: 20px 0;
+                    box-shadow: 0 2px 4px rgba(0,0,0,0.05);
+                }
+                .chart-title {
+                    font-weight: bold;
+                    margin-bottom: 10px;
+                }
+            </style>
+        </head>
+        <body>
+            <div class="header">
+                <h1>The €1.5 Trillion Paradox: Italian Household Financial Analysis</h1>
+                <p>Comprehensive analysis of Italian household financial behaviors compared to EU averages</p>
+                <div style="display: flex; justify-content: space-between;">
+                    <div style="text-align: left;"><b>SDA Bocconi</b> School of Management</div>
+                    <div style="text-align: right;">Analysis Date: April 23, 2025</div>
+                </div>
+            </div>
+            
+            <div class="analysis-box full-width">
+                <br>    <b style='font-size:16px; color:#000000'>Key Financial Analysis Insights:</b><br><br><br>    <b>The €1.5 Trillion Paradox:</b><br><br>    Italian households hold <b>€1577.4 billion</b> in cash and deposits, which is <b>1.3x</b> more relative to insurance products than the EU average.<br><br><br>    <b>Financial Impact:</b><br><br>    With 5% annual inflation, this cash preference results in a value erosion of approximately <b style='color:#c41e3a'>€78.9 billion</b> annually.<br><br><br>    <b>Insurance Gap:</b><br><br>    Insurance comprises only <b>19.0%</b> of total financial assets in Italy compared to <b>27.0%</b> in the EU - a <b>29.6%</b> difference.<br><br><br>    <b>Recommendations:</b><br><br>    1. Target financial education initiatives highlighting inflation risks<br><br>    2. Develop transparent, low-complexity insurance products<br><br>    3. Focus on digital solutions that balance liquidity and protection<br>    
+            </div>
+            
+            <div class="dashboard-container">
+                <div class="chart-container">
+                    <div class="chart-title">Key Ratio: Cash & Deposits to Insurance</div>
+                    <iframe src="cadins_ratio.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Key Ratio: Insurance to Financial Assets</div>
+                    <iframe src="insfa_ratio.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Actual Individual Consumption to GDP</div>
+                    <iframe src="aicgdp_ratio.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Financial Assets to GDP Ratio</div>
+                    <iframe src="fagdp_ratio.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Historical Trend: Cash & Deposits to Insurance</div>
+                    <iframe src="cadins_trend.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+                <div class="chart-container">
+                    <div class="chart-title">Consumption to Cash & Deposits Ratio</div>
+                    <iframe src="aiccad_ratio.html" width="100%" height="400px" frameborder="0"></iframe>
+                </div>
+            </div>
+            
+            <div class="footer">
+                <p>Source: Eurostat data analysis. The €1.5 Trillion Paradox Report by SDA Bocconi School of Management.</p>
+            </div>
+        </body>
+        </html>
+        
